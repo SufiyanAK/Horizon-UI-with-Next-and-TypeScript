@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 import SideNav from "../components/SideNave"
+import HeadBar from "../components/Header"
+
 
 export const metadata: Metadata = {
     title: 'Next.js',
@@ -13,9 +15,10 @@ export default function DashboardLayout({
 }) {
     return (
         <html lang="en">
-            <body>
+            <body className="flex bg-blue-100">
                 <SideNav />
-                <div className="ml-64 w-[70%] bg-blue-100">
+                <HeadBar />
+                <div className="p-4 flex-1 lg:ml-[16rem] mt-[8rem]">
                     {children}
                 </div>
             </body>

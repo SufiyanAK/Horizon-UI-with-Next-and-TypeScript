@@ -22,16 +22,18 @@ export default function SideNav() {
     const path = usePathname()
 
     return (
-        <div className="p-4 w-60 border shadow-xl fixed left-0 top-0 h-dvh flex flex-col items-center">
-            <h2 className="text-2xl font-bold p-2 mt-8">HORIZON <span className="font-normal">UI</span></h2>
+        <div className="py-4 px-8 bg-white w-64 border fixed left-0 top-0 h-full hidden lg:flex flex-col items-center shadow-xl">
+            <h2 className="text-2xl font-bold p-2 mt-8">HORIZON <span className="font-normal">FREE</span></h2>
             <div className="border-[1px] w-full my-8"></div>
-            <div className="flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-4">
                 {navLinks.map((link) => {
                     const isOpen = path.startsWith(link.href);
 
                     return (
-                        <Link className="text-gray-400 text-sm flex gap-4" href={link.href} key={link.name}>
-                            <link.icon className={isOpen ? "text-blue-600" : "text-gray-400"} style={{ fontSize: 20 }} /> {link.name}
+                        <Link className="text-gray-400 text-sm flex items-center gap-4" href={link.href} key={link.name}>
+                            <link.icon style={{ fontSize: 20 }} className={isOpen ? "text-[#422afb]" : "text-gray-400"} />
+                            {link.name}
+                            <div className={isOpen ? "ml-auto h-8 w-1 bg-[#422afb] rounded-xl" : ""}></div>
                         </Link>
                     )
                 })}
